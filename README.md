@@ -16,6 +16,7 @@ docker run --name jenkins -d \
 
 - Start containers inside Jenkins
 ```groovy
+// Jenkins 2.0 Pipeline
 node {
    stage 'Pull Git repo'
    git branch: 'master', url: 'https://gitlab.com/gnhuy91/my-awesome-pj.git'
