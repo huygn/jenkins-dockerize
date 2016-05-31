@@ -14,6 +14,15 @@ docker run --name jenkins -d \
     gnhuy91/jenkins-docker:2.3
 ```
 
+- Check if Jenkins container can talk to `docker daemon` on the host
+```groovy
+// Jenkins 2.0 Pipeline
+node {
+   stage 'Check Docker'
+   sh 'docker ps -a'
+}
+```
+
 - Start containers inside Jenkins
 ```groovy
 // Jenkins 2.0 Pipeline
