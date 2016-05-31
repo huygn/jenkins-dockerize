@@ -12,7 +12,7 @@ docker run --name jenkins -d \
     -e JAVA_OPTS="-Duser.timezone=ICT -Xmx1024m -Dhudson.model.DirectoryBrowserSupport.CSP=\"default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';\"" \
     --privileged \
     --restart=unless-stopped \
-    gnhuy91/jenkins-docker:2.3
+    gnhuy91/jenkins-dockerize
 ```
 
 - Check if Jenkins container can talk to `docker daemon` on the host
