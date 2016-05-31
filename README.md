@@ -3,6 +3,7 @@ A Jenkins docker image that can spawn docker containers.
 
 ## Usage
 - Start the Jenkins container
+
 ```console
 docker run --name jenkins -d \
     -p 50000:50000 -p 8080:8080 \
@@ -15,6 +16,7 @@ docker run --name jenkins -d \
 ```
 
 - Check if Jenkins container can talk to `docker daemon` on the host
+
 ```groovy
 // Jenkins 2.0 Pipeline
 node {
@@ -24,6 +26,7 @@ node {
 ```
 
 - Start containers inside Jenkins
+
 ```groovy
 // Jenkins 2.0 Pipeline
 node {
@@ -36,7 +39,6 @@ node {
    stage 'Bring up container'
    sh 'docker run -d --name=my-awesome-ctnr -p 8000:8080 -v $(pwd):/opt java:8 bash -c "ls /opt/my-awesome-pj/target/my-awesome-pj-*.jar | xargs java -jar"'
 }
-
 ```
 
 ## References
