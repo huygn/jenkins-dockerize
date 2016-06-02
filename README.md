@@ -12,7 +12,7 @@ docker run --name jenkins -d \
     -e JAVA_OPTS="-Duser.timezone=ICT -Xmx1024m -Dhudson.model.DirectoryBrowserSupport.CSP=\"default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';\"" \
     --privileged \
     --restart=unless-stopped \
-    gnhuy91/jenkins-docker:2.3
+    gnhuy91/jenkins-dockerize
 ```
 
 - Check if Jenkins container can talk to `docker daemon` on the host
@@ -35,7 +35,7 @@ node {
    stage 'Maven install'
    sh 'docker run --rm -v /var/jenkins_home/.m2:/root/.m2 -v $(pwd):/opt maven:3.3.9-jdk-8 bash -c "cd /opt && mvn clean install -DskipITs"'
    stage 'Remove old containers'
-   sh 'docker rm -f my-awesome-ctnr'
+   sh 'docker rm -f my-awesome-ctnr || exit 0'
    stage 'Bring up container'
    sh 'docker run -d --name=my-awesome-ctnr -p 8000:8080 -v $(pwd):/opt java:8 bash -c "ls /opt/my-awesome-pj/target/my-awesome-pj-*.jar | xargs java -jar"'
 }
