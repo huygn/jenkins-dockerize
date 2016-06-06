@@ -1,7 +1,7 @@
 FROM jenkins:2.3
 
 USER root
-RUN curl -sSL https://get.docker.com/ | sh && rm -rf /var/lib/apt/lists/*
+RUN curl -fsSL https://get.docker.com/ | sh && rm -rf /var/lib/apt/lists/*
 RUN usermod -aG docker jenkins
 
 ENV COMPOSE_URL https://api.github.com/repos/docker/compose/releases
