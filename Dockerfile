@@ -1,4 +1,4 @@
-FROM jenkins:2.3
+FROM gnhuy91/jenkins-docker:2
 
 USER root
 RUN curl -fsSL https://get.docker.com/ | sh && rm -rf /var/lib/apt/lists/*
